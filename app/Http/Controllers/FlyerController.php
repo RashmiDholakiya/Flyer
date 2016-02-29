@@ -88,13 +88,6 @@ class FlyerController extends Controller
 	}
 	public function destroy($id)
 	{
-		$flyer = flyer::find($id);
-		if ($flyer->user_id != Auth::id()) {
-			if ($request->ajax()) {
-				return response(['You are Unauthorized person'], 403);
-			}
-			$_SESSION['msg'] = 'You Unauthorized user.';
-		}
 		$pic    = photo::find($id);
 		$files1 = "flyers/photos/" . $pic->path;
 		$files2 = "flyers/photos/th" . $pic->path;
@@ -105,5 +98,13 @@ class FlyerController extends Controller
 		return back();
 	}
 
+	public function save_card(Request $req)
+	{
+		rashmi::create($req->all());
+		/*$card = new rashmi();
+		$card->save($req);*/
+		return back();
+
+	}
 
 }
