@@ -28,7 +28,6 @@ class FlyerController extends Controller
 		$obj  = new rashmi();
 		$data = $obj->all()->sortByDesc('created_at');
 		return view('welcome', compact('data'));
-
 	}
 
 	public function view(rashmi $id)
