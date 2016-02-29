@@ -29,9 +29,10 @@
 
         <h4 class="list-group-item">Created By:: {!! $data->name !!}</h4>
 
-        <br>
+   <br>
+        <h2>Create Flyer</h2>
         <hr>
-        <br>
+
 
         <form action="{!! url('/save') !!}" method="post">
             {!! csrf_field() !!}

@@ -26,7 +26,7 @@ class FlyerController extends Controller
 	{
 
 		$obj  = new rashmi();
-		$data = $obj->all();
+		$data = $obj->all()->sortByDesc('created_at');
 		return view('welcome', compact('data'));
 
 	}
@@ -101,8 +101,7 @@ class FlyerController extends Controller
 	public function save_card(Request $req)
 	{
 		rashmi::create($req->all());
-		/*$card = new rashmi();
-		$card->save($req);*/
+		$_SESSION['msg'] = "Success";
 		return back();
 
 	}
