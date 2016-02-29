@@ -7,7 +7,7 @@
 @endsection
 @section('contents')
     <div class="jumbotron col-md-8 col-md-offset-2">
-        <h1>Hello</h1>
+        <h2>All Cards</h2>
 
         <p>
         <ul class="list-group">
