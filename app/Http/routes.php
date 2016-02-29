@@ -30,6 +30,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('rashmi/{id}','FlyerController@view');
 	Route::post('/save','FlyerController@save_flyer');
+	Route::post('/card','FlyerController@save_card');
 	Route::post('/photo/{id}','FlyerController@add_photo');
 	Route::get('/show','FlyerController@show');
 	Route::get('/show/{id}','FlyerController@show_view');

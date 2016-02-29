@@ -41,11 +41,13 @@
                 <div class="row">
                     @foreach($set as $photo)
                         <div class="col-md-3">
+                            @if($data['user_id'] == \Illuminate\Support\Facades\Auth::id())
                             <form action="{{url('demo/'.$photo->id)}}" method="POST">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="_method" value="delete">
                                 <input type="submit" value="Delete" class="btn btn-danger">
                             </form>
+                            @endif
                             <a href="{!! asset('flyers/photos/'.$photo->path) !!}" data-lity>
                                 <img class=" img-thumbnail" src="{!! asset('flyers/photos/th'.$photo->path) !!}">
                             </a>
@@ -56,6 +58,7 @@
             @endforeach
         </div>
     </div>
+    @if($data['user_id'] == \Illuminate\Support\Facades\Auth::id())
     <div class="col-md-6 col-md-offset-3">
         <h2>Add new Photos</h2>
         <form  action="{!! url('/photo/'.$data['id']) !!}" class="dropzone">
@@ -63,6 +66,7 @@
         </form>
         <hr>
     </div>
+    @endif
 @endsection
 {{--@for($i=0;$i<count($data['photo']);$i++)
                        <form action="{{url('demo/'.$data['photo'][$i]['id'])}}" method="POST">
