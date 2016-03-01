@@ -102,7 +102,6 @@ class FlyerController extends Controller
 		rashmi::create($req->all());
 		$_SESSION['msg'] = "Success";
 		return back();
-
 	}
 
 }
