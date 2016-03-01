@@ -4,7 +4,6 @@
     <title>Flyer</title>
 
 
-
     <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/dropzone/4.3.0/dropzone.min.js"></script>
@@ -66,47 +65,40 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" style="color: #ebebeb; font-size: x-large" href="#">Project Flyer</a>
             </div>
-            <ul class="nav navbar-nav">
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        @yield('nav')
-                    </ul>
-                </div>
-            </ul>
-            <!-- Right Side Of Navbar -->
+                    @yield('nav')
+                </ul>
+                <!-- Right Side Of Navbar -->
 
-            <!-- Authentication Links -->
-            <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login</a></li>
-                    <li><a href="{{ url('/register') }}">Register</a></li>
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #fff9fb">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                        </ul>
-
-                    </li>
-                @endif
-
-            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li><a href="{{ url('/login') }}">Login</a></li>
+                        <li><a href="{{ url('/register') }}">Register</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #fff9fb">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </div>
         </div>
-
-        {{-- @if(\Illuminate\Support\Facades\Auth::user())
-             <a href="{{ url('/logout') }}" style="float: right; " class="navbar-brand" >
-                 Logout
-             </a>
-         <a class="navbar-brand" href="#" style="float: right; color: #ebebeb;"> Welcome, {!! \Illuminate\Support\Facades\Auth::user()->name !!}</a>
-         @endif--}}
-
     </nav>
 </head>
 @if(isset($_SESSION['msg']))
